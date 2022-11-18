@@ -1,0 +1,18 @@
+
+Importing Keras libraries
+import keras
+Importing ImageDataGenerator from Keras
+from matplotlib import pyplot as plt
+from keras.preprocessing.image import ImageDataGenerator
+Defining the Parameters
+train_datagen=ImageDataGenerator(rescale=1./255,shear_range=0.2,rotation_range=180,zoom_range=0.2,horizontal_flip=True)
+test_datagen=ImageDataGenerator(rescale=1./255)
+Applying ImageDataGenerator functionality to train dataset
+from google.colab import drive
+drive.mount('/content/drive')
+Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount("/content/drive", force_remount=True).
+x_train=train_datagen.flow_from_directory('/content/drive/MyDrive/IBM PROJECT/dataset/DATA SET/archive/Dataset/Dataset/train_set',target_size=(128,128),batch_size=32,class_mode='binary')
+Found 436 images belonging to 2 classes.
+Applying ImageDataGenerator functionality to test dataset
+x_test=test_datagen.flow_from_directory('/content/drive/MyDrive/IBM PROJECT/dataset/DATA SET/archive/Dataset/Dataset/test_set',target_size=(128,128),batch_size=32,class_mode='binary')
+Found 121 images belonging to 2 classes.
